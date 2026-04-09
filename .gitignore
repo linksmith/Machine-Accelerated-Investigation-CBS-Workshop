@@ -12,3 +12,13 @@ __pycache__/
 
 # OS
 .DS_Store
+
+# Python environment
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# uv — commit uv.lock for reproducibility, ignore only the cache
+.uv/
