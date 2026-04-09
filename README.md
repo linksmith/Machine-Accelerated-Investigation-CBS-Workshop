@@ -42,27 +42,42 @@ Two exercises are included under `exercises/`.
 ```bash
 git clone --recurse-submodules https://github.com/linksmith/Machine-Accelerated-Investigation-CBS-Workshop.git
 cd Machine-Accelerated-Investigation-CBS-Workshop
+```
+
+**Mac / Linux** (with `make`):
+```bash
 make setup
 make jupyter
 ```
 
-`make setup` installs all Python dependencies (~30 seconds). `make jupyter` opens JupyterLab in your browser.
+**Windows** (or if `make` is not available):
+```bash
+uv sync --group dev --group viz
+uv run jupyter lab
+```
+
+Installs all Python dependencies (~30 seconds), then opens JupyterLab in your browser.
 
 For choropleth maps (Exercise 2 and beyond):
 
 ```bash
+# Mac / Linux
 make setup-geo
-```
 
-Run `make help` to see all available commands.
+# Windows
+uv sync --all-groups
+```
 
 ### Updating skills
 
 The five skills are git submodules — each lives in its own repository. To pull the latest version of all skills:
 
 ```bash
+# Mac / Linux
 make update
-# equivalent to: git submodule update --remote --merge
+
+# Windows
+git submodule update --remote --merge
 ```
 
 When you pull changes to the workshop repo itself, include submodule updates in one step:
