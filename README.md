@@ -18,14 +18,18 @@ Five AI agent skills that work together in sequence — from pulling raw CBS dat
 
 Two exercises are included under `exercises/`.
 
+## Prerequisites
+
+| Tool | What it's for | Install |
+|---|---|---|
+| **VS Code** | Code editor | [code.visualstudio.com/download](https://code.visualstudio.com/download) |
+| **Git** | Cloning the workshop repo and skills | [git-scm.com/downloads](https://git-scm.com/downloads) |
+| **Kilo Code** | AI coding agent (VS Code extension) | [marketplace.visualstudio.com](https://marketplace.visualstudio.com/items?itemName=kilocode.kilo-code) |
+| **uv** | Python package manager — installs Python and all dependencies in one step | [docs.astral.sh/uv](https://docs.astral.sh/uv/getting-started/installation/) |
+
 ## Setup
 
-### 1. Downloads
-
-- [VS Code](https://code.visualstudio.com/download)
-- [Kilo Code](https://marketplace.visualstudio.com/items?itemName=kilocode.kilo-code) (VS Code extension)
-
-### 2. Configure Kilo Code
+### 1. Configure Kilo Code
 
 1. Open VS Code and make sure Kilo Code is installed
 2. Close the built-in Chat tab if it's open
