@@ -73,3 +73,64 @@ Het eindresultaat moet bevatten:
 - [ ] [bijv. Bekende uitschieters (bijv. Amsterdam, Groningen) staan op een logische plek in de ranking]
 - [ ] [bijv. Geen lege waarden voor de kernvariabelen in de top-20]
 - [ ] [bijv. De bron en peildatum zijn zichtbaar in het eindproduct]
+
+---
+
+## Volledig ingevuld voorbeeld
+
+Hieronder een voorbeeld van dit template volledig ingevuld. Gebruik dit als referentie.
+
+---
+
+### [1] Context over het probleem
+
+In Nederland staat de energietransitie onder druk: het kabinet wil dat woningen voor 2030
+gemiddeld energielabel C hebben, maar uit CBS-cijfers blijkt dat meer dan 40% van de
+woningvoorraad nog label D of lager heeft. De verdeling is sterk regionaal: krimpgebieden
+en gemeenten met oude mijnbouwgeschiedenis scoren structureel slechter dan stedelijke
+gemeenten met veel nieuwbouw. Inzicht in deze ongelijkheid helpt beleidsmakers subsidies
+gerichter in te zetten.
+
+---
+
+### [2] Databronnen
+
+**CBS-tabel(len):**
+- Tabel ID: `85039NED` — Energielabels woningen; gemeente (2023)
+- Tabel ID: `82931NED` — Woningkenmerken per gemeente (eigendom, bouwjaar, type)
+
+**Lokale bestanden:**
+- Geen — alles wordt via de CBS OData API opgehaald
+
+**Aanvullende bronnen:**
+- CBS StatLine tabelregister via de cbs-statline-skill voor verificatie van tabel-IDs
+
+---
+
+### [3] Onderzoeksvraag
+
+**Welke gemeenten hebben de grootste achterstand in woningisolatie — gemeten als het
+aandeel woningen met energielabel D t/m G — en hoe verhoudt dit zich tot het landelijk
+gemiddelde?**
+
+---
+
+### [4] Gewenst eindresultaat
+
+Het eindresultaat moet bevatten:
+- [x] Een tabel met de 15 gemeenten met het hoogste aandeel slecht geïsoleerde woningen (label D–G), gesorteerd aflopend
+- [x] Een horizontaal staafdiagram van deze top-15 met het landelijk gemiddelde als referentielijn
+- [x] Een CSV-export `woningisolatie_gemeenten_2023.csv` met alle 342 gemeenten en hun labelscores
+- [x] Een korte samenvatting (3–5 zinnen) met de belangrijkste bevinding
+
+**Technisch format:** Python-script dat draait in de terminal (geen Jupyter notebook vereist)
+
+---
+
+### [5] Verificatiecriteria
+
+- [ ] De output bevat precies 342 gemeenten (geen dubbele, geen missende)
+- [ ] De gebruikte peildatum is 2023 of het meest recente beschikbare jaar
+- [ ] Amsterdam, Rotterdam en Den Haag staan niet in de top-15 (verwacht: stedelijke gemeenten scoren beter)
+- [ ] Het landelijk gemiddelde aandeel label D–G ligt tussen de 35% en 50%
+- [ ] De bronvermelding "CBS StatLine, tabel 85039NED" is zichtbaar in de grafiek of het rapport

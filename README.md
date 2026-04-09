@@ -112,6 +112,13 @@ Analyse a pre-downloaded CBS dataset (kerncijfers wijken en buurten 2025) to fin
 
 Open-ended: pick any CBS StatLine table via the API and tell a data-driven story. Use the full skill chain from discovery to map.
 
+## Presentation
+
+The workshop slides are available in the `presentation/` folder:
+
+- [`presentation/presentatie.pdf`](presentation/presentatie.pdf) — PDF version
+- [`presentation/presentatie.pptx`](presentation/presentatie.pptx) — PowerPoint version
+
 ## About data/expedities
 
 [data/expedities](https://dataexpedities.nl/) are intensive hackathons where data journalists use CBS statistical data to develop investigative stories. This workshop repo is the preparation material: it gives participants the tools and skills to hit the ground running on the day itself.
