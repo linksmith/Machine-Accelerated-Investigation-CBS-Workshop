@@ -1,3 +1,15 @@
 [submodule ".kilo/skills/cbs-statline-skill"]
 	path = .kilo/skills/cbs-statline-skill
 	url = https://github.com/linksmith/cbs-statline-skill.git
+[submodule ".kilo/skills/data-cleaning-dutch"]
+	path = .kilo/skills/data-cleaning-dutch
+	url = https://github.com/linksmith/data-cleaning-dutch.git
+[submodule ".kilo/skills/data-analysis-journalism"]
+	path = .kilo/skills/data-analysis-journalism
+	url = https://github.com/linksmith/data-analysis-journalism.git
+[submodule ".kilo/skills/data-viz-journalism"]
+	path = .kilo/skills/data-viz-journalism
+	url = https://github.com/linksmith/data-viz-journalism.git
+[submodule ".kilo/skills/dutch-choropleth-maps"]
+	path = .kilo/skills/dutch-choropleth-maps
+	url = https://github.com/linksmith/dutch-choropleth-maps.git
