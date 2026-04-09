@@ -1,4 +1,4 @@
-.PHONY: help setup setup-geo jupyter test test-live clean
+.PHONY: help setup setup-geo update jupyter test test-live clean
 
 help: ## Show available commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
@@ -13,6 +13,9 @@ setup-geo: ## Install all dependencies including geographic mapping (geopandas)
 	uv sync --all-groups
 	@echo ""
 	@echo "Full setup complete (incl. geopandas). Run: make jupyter"
+
+update: ## Pull latest version of all skills (submodules)
+	git submodule update --remote --merge
 
 jupyter: ## Start JupyterLab
 	uv run jupyter lab

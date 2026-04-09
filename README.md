@@ -42,6 +42,27 @@ make setup-geo
 
 Run `make help` to see all available commands.
 
+### Updating skills
+
+The five skills are git submodules — each lives in its own repository. To pull the latest version of all skills:
+
+```bash
+make update
+# equivalent to: git submodule update --remote --merge
+```
+
+When you pull changes to the workshop repo itself, include submodule updates in one step:
+
+```bash
+git pull --recurse-submodules
+```
+
+If you cloned without `--recurse-submodules` and the skill folders are empty, initialize them first:
+
+```bash
+git submodule update --init --recursive
+```
+
 ## Using the skills
 
 Open your AI coding agent and load a skill before starting work. In Kilo Code, click **Add Skill** and point it at the skill folder, or install from the GitHub release URL. In Claude Code, use `/skill`.
