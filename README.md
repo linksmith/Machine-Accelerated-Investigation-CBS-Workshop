@@ -1,10 +1,12 @@
 # Machine-Accelerated Investigation — CBS Workshop
 
-A hands-on workshop for Dutch data journalists: use AI coding agents (Kilo Code / Claude Code) to investigate housing, energy, and regional statistics from [CBS StatLine](https://opendata.cbs.nl/statline/).
+Preparation material for the [data/expedities](https://dataexpedities.nl/) workshops — a collaboration between [Stichting Momus](https://www.momus.nl/), [CBS](https://www.cbs.nl/), [Open State Foundation](https://openstate.eu/), and the Dutch Ministry of the Interior.
 
-## What's in this repo
+The workshops bring together data journalists and programmers to build investigative stories using CBS StatLine open data and AI coding agents. The goal: go from idea to working data pipeline in minutes instead of days.
 
-Five AI agent skills that work together in sequence:
+## What this repo contains
+
+Five AI agent skills that work together in sequence — from pulling raw CBS data all the way to a publication-ready chart or map:
 
 | Skill | What it does |
 |---|---|
@@ -38,11 +40,7 @@ If you need choropleth maps (Exercise 2 and beyond):
 make setup-geo
 ```
 
-### All available commands
-
-```
-make help
-```
+Run `make help` to see all available commands.
 
 ## Using the skills
 
@@ -59,6 +57,12 @@ Analyse a pre-downloaded CBS dataset (kerncijfers wijken en buurten 2025) to fin
 ### Exercise 2 — Vrije API-opdracht
 
 Open-ended: pick any CBS StatLine table via the API and tell a data-driven story. Use the full skill chain from discovery to map.
+
+## About data/expedities
+
+[data/expedities](https://dataexpedities.nl/) are intensive hackathons where data journalists use CBS statistical data to develop investigative stories. This workshop repo is the preparation material: it gives participants the tools and skills to hit the ground running on the day itself.
+
+Sessions are held at Open State Foundation in Amsterdam.
 
 ## License
 
