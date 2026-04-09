@@ -18,12 +18,26 @@ Five AI agent skills that work together in sequence — from pulling raw CBS dat
 
 Two exercises are included under `exercises/`.
 
-## Prerequisites
-
-- [uv](https://docs.astral.sh/uv/getting-started/installation/) — Python package manager
-- [Kilo Code](https://kilocode.ai/) (VS Code extension) or [Claude Code](https://claude.ai/code) (CLI)
-
 ## Setup
+
+### 1. Downloads
+
+- [VS Code](https://code.visualstudio.com/download)
+- [Kilo Code](https://marketplace.visualstudio.com/items?itemName=kilocode.kilo-code) (VS Code extension)
+
+### 2. Configure Kilo Code
+
+1. Open VS Code and make sure Kilo Code is installed
+2. Close the built-in Chat tab if it's open
+3. Click the **Kilo Code icon** in the sidebar
+4. Click the **settings icon** inside Kilo Code
+5. Click **Providers**
+6. Next to **OpenRouter**, click **+ Connect**
+7. Paste in the API key shared at the start of the workshop
+8. At the bottom of the screen, click the **Kilo Auto Free** dropdown
+9. Search for **GLM-5** and select it — please don't select a different model, as the shared credits are limited
+
+### 3. Install the workshop repository
 
 ```bash
 git clone --recurse-submodules https://github.com/linksmith/Machine-Accelerated-Investigation-CBS-Workshop.git
@@ -32,9 +46,9 @@ make setup
 make jupyter
 ```
 
-`make setup` installs all dependencies and takes about 30 seconds. `make jupyter` opens JupyterLab in your browser.
+`make setup` installs all Python dependencies (~30 seconds). `make jupyter` opens JupyterLab in your browser.
 
-If you need choropleth maps (Exercise 2 and beyond):
+For choropleth maps (Exercise 2 and beyond):
 
 ```bash
 make setup-geo
