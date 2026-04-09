@@ -1,0 +1,14 @@
+# Test infrastructure
+tests/
+pytest.ini
+.pytest_cache/
+.kilo/skills/*/tests/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ruff_cache/
+
+# OS
+.DS_Store

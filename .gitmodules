@@ -1,0 +1,3 @@
+[submodule ".kilo/skills/cbs-statline-skill"]
+	path = .kilo/skills/cbs-statline-skill
+	url = https://github.com/linksmith/cbs-statline-skill.git

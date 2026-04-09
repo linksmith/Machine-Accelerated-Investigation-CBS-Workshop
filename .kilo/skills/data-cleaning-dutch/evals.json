@@ -1,0 +1,137 @@
+{
+  "skill_name": "data-cleaning-dutch",
+  "eval_protocol": "Activate the skill, run the prompt verbatim, grade each scoring_criteria item pass/fail. Eval passes if all criteria met.",
+  "evals": [
+    {
+      "id": "DC-01",
+      "prompt": "Ik heb een CSV-bestand met puntkomma's als scheidingsteken, komma's als decimaalteken en UTF-8-BOM-encoding. Hoe laad ik dit correct in pandas?",
+      "expected_output": "Generates pd.read_csv with sep=';', decimal=',', encoding='utf-8-sig', responds in Dutch",
+      "scoring_criteria": [
+        "Code uses sep=';'",
+        "Code uses decimal=','",
+        "Code uses encoding='utf-8-sig'",
+        "Response is in Dutch",
+        "Code includes thousands='.' parameter or mentions it"
+      ],
+      "files": []
+    },
+    {
+      "id": "DC-02",
+      "prompt": "Ik heb een dataset met de volgende waarden in sommige cellen: -, ., x, .., ..., geheim, n.v.t. Vervang alle Nederlandse ontbrekende waarden door pd.NA in deze dataset.",
+      "expected_output": "Code replaces all 7+ Dutch markers, singles out geheim with privacy note",
+      "scoring_criteria": [
+        "Replaces '-' with pd.NA",
+        "Replaces '.' with pd.NA",
+        "Replaces 'x' with pd.NA",
+        "Replaces '...' with pd.NA",
+        "Replaces 'geheim' with pd.NA",
+        "Replaces 'n.v.t.' with pd.NA",
+        "Adds a note about 'geheim' meaning privacy suppression (<5 observations)",
+        "Shows the complete list of markers in code (not just a subset)"
+      ],
+      "files": []
+    },
+    {
+      "id": "DC-03",
+      "prompt": "In mijn databestand staan cellen met de waarde 'geheim'. Wat betekent dit voor mijn data-analyse en hoe ga ik ermee om?",
+      "expected_output": "Explains CBS privacy suppression rule, counts suppressed cells, frames it as potential story",
+      "scoring_criteria": [
+        "Explains that 'geheim' means CBS suppressed values because fewer than 5 individual observations would be identifiable",
+        "Suggests counting how many cells are suppressed (value counts or sum)",
+        "Frames the suppression itself as potentially newsworthy ('kan een verhaal op zichzelf zijn')",
+        "Provides code to replace with pd.NA",
+        "Does NOT silently drop rows with 'geheim'"
+      ],
+      "files": []
+    },
+    {
+      "id": "DC-04",
+      "prompt": "Ik probeer een CSV te openen maar krijg steeds een UnicodeDecodeError. Hoe los ik dit op?",
+      "expected_output": "Generates try/except loop with utf-8-sig, utf-8, latin-1, cp1252 in that order",
+      "scoring_criteria": [
+        "Tries 'utf-8-sig' first",
+        "Tries 'utf-8' second",
+        "Tries 'latin-1' (or 'iso-8859-1')",
+        "Tries 'cp1252'",
+        "Uses try/except UnicodeDecodeError",
+        "Prints or logs which encoding succeeded"
+      ],
+      "files": []
+    },
+    {
+      "id": "DC-05",
+      "prompt": "Mijn kolom 'publicatiedatum' bevat datums als '15-03-2024' (dag-maand-jaar). Hoe converteer ik dit naar een pandas datetime?",
+      "expected_output": "Uses format='%d-%m-%Y' explicitly, not just dayfirst=True",
+      "scoring_criteria": [
+        "Uses pd.to_datetime with explicit format='%d-%m-%Y'",
+        "Does NOT rely solely on dayfirst=True (which is unreliable)",
+        "Includes errors='coerce' to handle bad values",
+        "Explains why explicit format is more reliable than dayfirst"
+      ],
+      "files": []
+    },
+    {
+      "id": "DC-06",
+      "prompt": "Mijn kolom 'bedrag' bevat waarden zoals '1.234,56' (Nederlandse notatie als tekst). Hoe converteer ik dit naar float?",
+      "expected_output": "Removes . first (thousands), then replaces , with . (decimal), applies pd.to_numeric",
+      "scoring_criteria": [
+        "Removes '.' (thousands separator) first, BEFORE replacing ','",
+        "Replaces ',' with '.'",
+        "Applies pd.to_numeric or astype(float)",
+        "Does NOT do a single str.replace(',', '.') without also handling thousands dots",
+        "Handles the string type correctly (uses .str accessor on pandas Series)"
+      ],
+      "files": []
+    },
+    {
+      "id": "DC-07",
+      "prompt": "Mijn DataFrame heeft een kolom 'postcode'. Hoe valideer ik of alle postcodes het juiste Nederlandse formaat hebben (zoals 1234AB)?",
+      "expected_output": "Strips spaces, uppercases, uses regex r'^\\d{4}[A-Z]{2}$', reports invalid ones",
+      "scoring_criteria": [
+        "Strips whitespace from postcodes before validating",
+        "Converts to uppercase",
+        "Uses regex pattern matching 4 digits + 2 uppercase letters",
+        "Reports HOW MANY postcodes are invalid (count)",
+        "Shows the invalid examples (don't just drop them silently)"
+      ],
+      "files": []
+    },
+    {
+      "id": "DC-08",
+      "prompt": "Voer een complete data-gezondheidscheck uit op mijn DataFrame df, zowel voor als na het opschonen.",
+      "expected_output": "Step 0 health check + Step 10 before/after report, journalistic interpretation",
+      "scoring_criteria": [
+        "Shows df.shape",
+        "Shows df.dtypes or df.info()",
+        "Shows df.isnull().sum()",
+        "Shows df.duplicated().sum()",
+        "Compares before vs after state (row counts, missing value counts)",
+        "Includes a journalistic interpretation line mentioning whether missingness levels could be a story"
+      ],
+      "files": []
+    },
+    {
+      "id": "DC-09",
+      "prompt": "Mijn Excel-bestand van de gemeente heeft samengevoegde cellen in de koptekstrij, waardoor pandas de kolommen verkeerd laadt. Hoe los ik dit op?",
+      "expected_output": "Uses header=None, then manually assigns columns",
+      "scoring_criteria": [
+        "Uses header=None in pd.read_excel",
+        "Does NOT start with header=1 as the first suggestion",
+        "Shows how to manually assign column names after loading",
+        "Uses engine='openpyxl' (or mentions it)"
+      ],
+      "files": []
+    },
+    {
+      "id": "DC-10",
+      "prompt": "Laad de CBS-data over zonnepanelen per gemeente rechtstreeks in pandas.",
+      "expected_output": "Redirects to cbs-statline-skill, does NOT attempt pd.read_csv on an OData URL",
+      "scoring_criteria": [
+        "Does NOT generate pd.read_csv(url) where url is a CBS OData or StatLine URL",
+        "Explicitly mentions that CBS OData data should be retrieved with the cbs-statline-skill",
+        "Explains the difference between cleaning local files vs. API retrieval"
+      ],
+      "files": []
+    }
+  ]
+}

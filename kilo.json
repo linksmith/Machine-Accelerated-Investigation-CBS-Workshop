@@ -1,0 +1,17 @@
+{
+  "skills": {
+    "paths": [".kilo/skills"]
+  },
+  "instructions": ["AGENTS.md"],
+  "permission": {
+    "bash": "allow",
+    "edit": "allow",
+    "read": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "skill": "allow",
+    "webfetch": "allow",
+    "todowrite": "allow",
+    "todoread": "allow"
+  }
+}
